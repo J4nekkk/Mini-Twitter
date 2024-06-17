@@ -1,0 +1,23 @@
+syntax = "proto3";
+package minitwitter;
+
+option go_package = "github.com/J4nekkk/Mini-Twitterek";
+
+service Twitter {
+  rpc SendTweet (Tweet) returns (Empty);
+  rpc GetTweet (TweetLicz) returns (stream Tweet);
+}
+
+message Tweet {
+  string text = 1;
+}
+
+message TweetLicz {
+  int32 Liczba = 1; // Dodajemy pole Liczba
+}
+
+message TweetList { // Dodajemy nową wiadomość TweetList
+  repeated string Tweet = 1;
+}
+
+message Empty{}
